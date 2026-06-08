@@ -1,9 +1,13 @@
-package com.ecomarket.usuarios.entity;
+package com.ecomarket.usuarios.model;
 
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.Getter;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -36,8 +40,14 @@ public class Usuario {
     @Column(nullable = false)
     private String password;
 
+    /**
+     * Rol del usuario mapeado como enum JPA.
+     * Reemplaza el campo String anterior para garantizar
+     * consistencia de valores y seguridad en tiempo de compilación.
+     */
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
-    private String rol;
+    private Rol rol;
 
     @Column(nullable = false)
     private Boolean activo;
@@ -48,8 +58,18 @@ public class Usuario {
     @Column(length = 50)
     private String nivelAcceso;
 
-    @Column(length = 500)
-    private String permisos;
+    /**
+     * Lista de permisos del usuario almacenada en tabla separada (usuario_permisos).
+     * Reemplaza el campo String con valores separados por coma,
+     * mejorando la normalización del modelo de datos.
+     */
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(
+            name = "usuario_permisos",
+            joinColumns = @JoinColumn(name = "usuario_id")
+    )
+    @Column(name = "permiso", length = 80)
+    private List<String> permisos;
 
     @Column(length = 120)
     private String modificadoPor;
