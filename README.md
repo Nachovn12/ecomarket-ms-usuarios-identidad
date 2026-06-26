@@ -4,13 +4,13 @@ Microservicio responsable del registro de clientes, autenticacion, actualizacion
 
 ## Responsable
 
-| Campo | Detalle |
-| --- | --- |
-| Responsable principal | Ignacio Valeria |
-| Rama de trabajo | `feature/ms-usuarios-identidad` |
-| Base de datos | `bd_usuarios` |
-| Puerto local | `8083` |
-| URL base local | `http://localhost:8083` |
+| Campo                 | Detalle                         |
+| --------------------- | ------------------------------- |
+| Responsable principal | Ignacio Valeria                 |
+| Rama de trabajo       | `feature/ms-usuarios-identidad` |
+| Base de datos         | `bd_usuarios`                   |
+| Puerto local          | `8083`                          |
+| URL base local        | `http://localhost:8083`         |
 
 ## Que hace
 
@@ -27,7 +27,6 @@ Microservicio responsable del registro de clientes, autenticacion, actualizacion
 - Spring Boot
 - Spring Web
 - Spring Data JPA / Hibernate
-
 - MySQL
 - Maven
 - JUnit
@@ -68,42 +67,34 @@ COLLATE utf8mb4_unicode_ci;
 
 ## Como ejecutar
 
-Desde la raiz del repositorio:
+Desde la raiz de este repositorio:
 
 ```powershell
-cd .\ms-usuarios-identidad\
 .\mvnw.cmd spring-boot:run
 ```
 
 ## Como probar
 
 ```powershell
-.\mvnw.cmd test
-```
-
-O entrando al directorio (recomendado):
-
-```powershell
-cd .\ms-usuarios-identidad\
 .\mvnw.cmd clean test
 ```
 
 ## Endpoints principales
 
-| Metodo | Ruta | Uso |
-| --- | --- | --- |
-| POST | `/api/usuarios/registro` | Registrar cliente web |
-| GET | `/api/usuarios/clientes/{idCliente}/perfil` | Consultar perfil de cliente |
-| PUT | `/api/usuarios/clientes/{idCliente}/perfil` | Actualizar perfil, direccion y medio de pago |
-| POST | `/api/auth/login` | Iniciar sesion |
-| POST | `/api/usuarios/internos` | Crear usuario interno |
-| GET | `/api/usuarios/internos` | Listar usuarios internos |
-| PUT | `/api/usuarios/internos/{id}` | Actualizar usuario interno |
-| PUT | `/api/usuarios/internos/{id}/desactivar` | Desactivar usuario interno |
-| DELETE | `/api/usuarios/internos/{id}` | Eliminar usuario interno |
-| PUT | `/api/usuarios/internos/{id}/roles-permisos` | Asignar roles y permisos |
-| GET | `/api/usuarios/internos/{id}/roles-permisos` | Consultar roles y permisos |
-| GET | `/api/usuarios/internos/{id}/verificar-acceso` | Verificar acceso a un modulo |
+| Metodo | Ruta                                           | Uso                                          |
+| ------ | ---------------------------------------------- | -------------------------------------------- |
+| POST   | `/api/usuarios/registro`                       | Registrar cliente web                        |
+| GET    | `/api/usuarios/clientes/{idCliente}/perfil`    | Consultar perfil de cliente                  |
+| PUT    | `/api/usuarios/clientes/{idCliente}/perfil`    | Actualizar perfil, direccion y medio de pago |
+| POST   | `/api/auth/login`                              | Iniciar sesion                               |
+| POST   | `/api/usuarios/internos`                       | Crear usuario interno                        |
+| GET    | `/api/usuarios/internos`                       | Listar usuarios internos                     |
+| PUT    | `/api/usuarios/internos/{id}`                  | Actualizar usuario interno                   |
+| PUT    | `/api/usuarios/internos/{id}/desactivar`       | Desactivar usuario interno                   |
+| DELETE | `/api/usuarios/internos/{id}`                  | Eliminar usuario interno                     |
+| PUT    | `/api/usuarios/internos/{id}/roles-permisos`   | Asignar roles y permisos                     |
+| GET    | `/api/usuarios/internos/{id}/roles-permisos`   | Consultar roles y permisos                   |
+| GET    | `/api/usuarios/internos/{id}/verificar-acceso` | Verificar acceso a un modulo                 |
 
 ## Ejemplo de uso
 
@@ -124,16 +115,17 @@ GET http://localhost:8083/api/usuarios/clientes/1/perfil
 
 ### Casos de uso
 
-![Casos de uso MS Usuarios e Identidad](../docs/diagramas/casos-uso/diagrama-casos-uso-ms-usuarios-identidad.png)
+![Casos de uso MS Usuarios e Identidad](https://raw.githubusercontent.com/Nachovn12/ecomarket-spa-docs/main/docs/diagramas/casos-uso/diagrama-casos-uso-ms-usuarios-identidad.png)
 
 ### Diagrama de clases
 
-![Diagrama de clases MS Usuarios e Identidad](../docs/diagramas/clases/diagrama-clases-ms-usuarios-identidad.png)
+![Diagrama de clases MS Usuarios e Identidad](https://raw.githubusercontent.com/Nachovn12/ecomarket-spa-docs/main/docs/diagramas/clases/diagrama-clases-ms-usuarios-identidad.png)
 
 ## Documentacion relacionada
 
-- `../docs/postman/evidencia-s4-ignacio-usuarios.md`
-- `../docs/evidencias-tecnicas/03_postman_endpoints.md`
-- `../docs/evidencias-tecnicas/05_rest_crud_hateoas.md`
-- `../docs/arquitectura/bases-datos-mysql.md`
-- `../docs/hateoas/documentacion-hateoas-base.md`
+- [Evidencia Postman](https://github.com/Nachovn12/ecomarket-spa-docs/blob/main/docs/postman/evidencia-postman.md)
+- [Evidencias tecnicas](https://github.com/Nachovn12/ecomarket-spa-docs/tree/main/docs/evidencias-tecnicas)
+- [Arquitectura de microservicios](https://github.com/Nachovn12/ecomarket-spa-docs/blob/main/docs/arquitectura/arquitectura-microservicios.md)
+- [Bases de datos MySQL](https://github.com/Nachovn12/ecomarket-spa-docs/blob/main/docs/arquitectura/bases-datos-mysql.md)
+- [HATEOAS](https://github.com/Nachovn12/ecomarket-spa-docs/blob/main/docs/hateoas/documentacion-hateoas-base.md)
+- [Repositorio de documentacion](https://github.com/Nachovn12/ecomarket-spa-docs)
